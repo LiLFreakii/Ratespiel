@@ -11,7 +11,7 @@ namespace Ratespiel
     {
         public string getConnectionString()
         {
-            string str = "Server:localhost;Port=3306;Database=Ratespiel;Uid=root;Pwd=pa$$w0rd;Charset=UTF8;";
+            string str = "Server:localhost;Port=3307;Database=Ratespiel;Uid=root;Pwd=pa$$w0rd;Charset=UTF8;";
 
             return str;
         }

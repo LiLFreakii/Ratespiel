@@ -11,7 +11,7 @@ namespace Ratespiel
     {
         public string getConnectionString()
         {
-            string str = "Server:localhost;Port=3306;Database=Ratespiel;Uid=root;Pwd=pa$$w0rd;Charset=UTF8;";
+            string str = "Server:localhost;Port=3307;Database=Ratespiel;Uid=root;Pwd=pa$$w0rd;Charset=UTF8;";
 
             return str;
         }
@@ -28,7 +28,24 @@ namespace Ratespiel
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Delete from FragenAntworten where id = " + id;
+                    try
+                    {
+                        connection.Open();
+
+                        MySqlDataReader reader = command.ExecuteReader();
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
 
         public int MaxID()

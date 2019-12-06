@@ -11,7 +11,7 @@ namespace Ratespiel
     {
         public string getConnectionString()
         {
-            string str = "Server:localhost;Port=3306;Database=Ratespiel;Uid=root;Pwd=pa$$w0rd;Charset=UTF8;";
+            string str = "Server=localhost;Port=3307;Database=ratespiel;Uid=root;Pwd=pa$$w0rd;CharSet=UTF8;";
 
             return str;
         }
@@ -28,7 +28,39 @@ namespace Ratespiel
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Delete from Spiel where UserId = " + id;
+                    try
+                    {
+                        connection.Open();
+
+                        MySqlDataReader reader = command.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                        
+                    }
+                }
+
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Delete from User where id = " + id;
+                    try
+                    {
+                        MySqlDataReader reader = command.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
 
         public int MaxID()
@@ -43,7 +75,7 @@ namespace Ratespiel
             {
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM User order by Zuname;";
+                    command.CommandText = "SELECT * FROM User order by Nachname;";
                     try
                     {
                         connection.Open();
