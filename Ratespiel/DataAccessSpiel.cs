@@ -28,7 +28,24 @@ namespace Ratespiel
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Delete from Spiel where id = " + id;
+                    try
+                    {
+                        connection.Open();
+
+                        MySqlDataReader reader = command.ExecuteReader();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
 
         public int MaxID()

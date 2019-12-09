@@ -19,6 +19,8 @@ namespace Ratespiel
         public int Count()
         {
             throw new NotImplementedException();
+
+            // Execute Scalar
         }
 
         public int Create()
@@ -43,7 +45,7 @@ namespace Ratespiel
                     catch (Exception ex)
                     {
                         System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
-                        
+
                     }
                 }
 
@@ -72,36 +74,37 @@ namespace Ratespiel
         {
             List<User> lstUser = new List<User>();
             using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+
+            using (MySqlCommand command = connection.CreateCommand())
             {
-                using (MySqlCommand command = connection.CreateCommand())
+                command.CommandText = "SELECT * FROM User order by Nachname;";
+                try
                 {
-                    command.CommandText = "SELECT * FROM User order by Nachname;";
-                    try
+                    connection.Open();
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        connection.Open();
-                        
-                        MySqlDataReader reader = command.ExecuteReader();
-                        if (reader.HasRows)
+                        while (reader.Read())
                         {
-                            while (reader.Read())
-                            {
-                                User user = new User();
-                                user.Id = reader.GetInt32("Id");
-                                user.Username = reader.IsDBNull(1) ? "" : reader.GetString("Username");
-                                user.Passwort = reader.IsDBNull(2) ? "" : reader.GetString("Passwort");
-                                user.Vorname = reader.IsDBNull(2) ? "" : reader.GetString("Vorname");
-                                user.Nachname = reader.IsDBNull(2) ? "" : reader.GetString("Nachname");
-                                user.Mail = reader.IsDBNull(3) ? "" : reader.GetString("Mail");
-                                user.ScoreId = reader.IsDBNull(4) ? 0 : reader.GetInt32("ScoreId");
-                                lstUser.Add(user);
-                            }
+                            User user = new User();
+                            user.Id = reader.GetInt32("Id");
+                            user.Username = reader.IsDBNull(1) ? "" : reader.GetString("Username");
+                            user.Passwort = reader.IsDBNull(2) ? "" : reader.GetString("Passwort");
+                            user.Vorname = reader.IsDBNull(2) ? "" : reader.GetString("Vorname");
+                            user.Nachname = reader.IsDBNull(2) ? "" : reader.GetString("Nachname");
+                            user.Mail = reader.IsDBNull(3) ? "" : reader.GetString("Mail");
+                            user.ScoreId = reader.IsDBNull(4) ? 0 : reader.GetInt32("ScoreId");
+                            lstUser.Add(user);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
-                    }
                 }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                }
+
+                // Connection.Close() nicht notwendig, da using
             }
             return lstUser;
         }
