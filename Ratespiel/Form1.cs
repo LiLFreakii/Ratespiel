@@ -27,13 +27,19 @@ namespace Ratespiel
         private void button2_Click(object sender, EventArgs e)
         {
             DataAccessUser daUser = new DataAccessUser();
-            User user = new User();
 
             //MessageBox.Show(dGV.CurrentRow.ToString());
 
             int Id = Convert.ToInt32(txtId.Text);
 
             daUser.Delete(Id);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+
+            daUser.ReadALL();
         }
     }
 }

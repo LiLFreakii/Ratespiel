@@ -103,7 +103,7 @@ namespace Ratespiel
             {
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM FragenAntworten;";
+                    command.CommandText = "Select * from FragenAntworten;";
                     try
                     {
                         connection.Open();
