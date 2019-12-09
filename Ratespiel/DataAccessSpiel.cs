@@ -18,7 +18,28 @@ namespace Ratespiel
 
         public int Count()
         {
-            throw new NotImplementedException();
+            int count = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Select count(*) from Spiel";
+                    try
+                    {
+                        connection.Open();
+
+                        count = Convert.ToInt32(command.ExecuteScalar());
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
+
+            return count;
         }
 
         public int Create()
@@ -32,12 +53,13 @@ namespace Ratespiel
             {
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "Delete from Spiel where id = " + id;
+                    command.CommandText = "Delete from Spiel where id = @id";
+                    command.Parameters.AddWithValue("@id", id);
                     try
                     {
                         connection.Open();
 
-                        MySqlDataReader reader = command.ExecuteReader();
+                        command.ExecuteNonQuery();
 
                     }
                     catch (Exception ex)
@@ -50,7 +72,28 @@ namespace Ratespiel
 
         public int MaxID()
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Select ID from Spiel order by Id desc Limit 0, 1";
+                    try
+                    {
+                        connection.Open();
+
+                        id = Convert.ToInt32(command.ExecuteScalar());
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
+
+            return id;
         }
 
         public List<Spiel> ReadAll()
@@ -60,7 +103,7 @@ namespace Ratespiel
             {
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "SELECT * FROM Spiel;";
+                    command.CommandText = "Select * from Spiel;";
                     try
                     {
                         connection.Open();
