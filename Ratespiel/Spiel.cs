@@ -11,8 +11,8 @@ namespace Ratespiel
         public int Id { get; set; }
         public int SpielNr { get; set; } 
         public int UserId { get; set; }
-
         public int FuAId { get; set; }
         public int Score { get; set; } 
+        public DateTime Datum { get; set; }
     }
 }

@@ -42,9 +42,42 @@ namespace Ratespiel
             return count;
         }
 
-        public int Create()
+        public int Create(FragenAntworten fragenAntworten)
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Insert into FragenAntowrten (frage, antwort1, antwort2, antwort3, antwort4, richtigeAntwort, schwierigkeit) " +
+                                          "values (@frage, @antwort1, @antwort2, @antwort3, @antwort4, @richtigeAntwort, @schwierigkeit)";
+
+
+                    command.Parameters.AddWithValue("@frage", fragenAntworten.Frage);
+                    command.Parameters.AddWithValue("@antwort1", fragenAntworten.Antwort1);
+                    command.Parameters.AddWithValue("@antwort2", fragenAntworten.Antwort2);
+                    command.Parameters.AddWithValue("@antwort3", fragenAntworten.Antwort3);
+                    command.Parameters.AddWithValue("@antwort4", fragenAntworten.Antwort4);
+                    command.Parameters.AddWithValue("@richtigeAntwort", fragenAntworten.RichtigeAntwort);
+                    command.Parameters.AddWithValue("@schwierigkeit", fragenAntworten.Schwierigkeit);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int rows = command.ExecuteNonQuery();
+                        id = Convert.ToInt32(command.LastInsertedId);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
+
+            return id;
         }
 
         public void Delete(int id)
@@ -135,9 +168,35 @@ namespace Ratespiel
             return lstfragenAntworten;
         }
 
-        public void Update()
+        public void Update(FragenAntworten fragenAntworten)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Update User set frage = @frage, antwort1 = @antwort1, antwort2 = @antwort2, antwort3 = @antwort3, antwort4 = @antwort4, richtigeAntwort = @richtigeAntwort, schwierigkeit = @schwierigkeit where Id = @Id";
+                    command.Parameters.AddWithValue("@id", fragenAntworten.Id);
+                    command.Parameters.AddWithValue("@frage", fragenAntworten.Frage);
+                    command.Parameters.AddWithValue("@antwort1", fragenAntworten.Antwort1);
+                    command.Parameters.AddWithValue("@antwort2", fragenAntworten.Antwort2);
+                    command.Parameters.AddWithValue("@antwort3", fragenAntworten.Antwort3);
+                    command.Parameters.AddWithValue("@antwort4", fragenAntworten.Antwort4);
+                    command.Parameters.AddWithValue("@richtigeAntwort", fragenAntworten.RichtigeAntwort);
+                    command.Parameters.AddWithValue("@schwierigkeit", fragenAntworten.Schwierigkeit);
+
+                    try
+                    {
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
     }
 }

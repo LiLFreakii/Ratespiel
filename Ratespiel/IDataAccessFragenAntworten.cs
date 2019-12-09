@@ -9,9 +9,9 @@ namespace Ratespiel
     public interface IDataAccessFragenAntworten
     {
         List<FragenAntworten> ReadALL();
-        int Create();
+        int Create(FragenAntworten fragenAntworten);
         void Delete(int id);
-        void Update();
+        void Update(FragenAntworten fragenAntworten);
         int Count();
         int MaxID();
     }

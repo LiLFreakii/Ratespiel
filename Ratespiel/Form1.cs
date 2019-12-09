@@ -33,13 +33,68 @@ namespace Ratespiel
             int Id = Convert.ToInt32(txtId.Text);
 
             daUser.Delete(Id);
+
+            List<User> lstUser = daUser.ReadALL();
+            dGV.DataSource = lstUser;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             DataAccessUser daUser = new DataAccessUser();
 
-            daUser.ReadALL();
+            List<User> lstUser = daUser.ReadALL();
+            dGV.DataSource = lstUser;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+            User user = new User();
+            int id = Convert.ToInt32(txtId.Text);
+
+            user.Username = txtUN.Text;
+            user.Passwort = txtPW.Text;
+            user.Vorname = txtvn.Text;
+            user.Nachname = txtnn.Text;
+            user.Mail = txtmail.Text;
+
+            daUser.Update(id, user.Username, user.Passwort, user.Vorname, user.Nachname, user.Mail);
+
+            List<User> lstUser = daUser.ReadALL();
+            dGV.DataSource = lstUser;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+            User user = new User();
+
+            user.Username = txtUN.Text;
+            user.Passwort = txtPW.Text;
+            user.Vorname = txtvn.Text;
+            user.Nachname = txtnn.Text;
+            user.Mail = txtmail.Text;
+
+            daUser.Create(user.Username, user.Passwort, user.Vorname, user.Nachname, user.Mail);
+
+            List<User> lstUser = daUser.ReadALL();
+            dGV.DataSource = lstUser;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+
+            int maxId = daUser.MaxID();
+            txtmaxi.Text = maxId.ToString();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+
+            int maxId = daUser.Count();
+            txtcount.Text = maxId.ToString();
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Ratespiel
     public interface IDataAccessSpiel
     {
         List<Spiel> ReadAll();
-        int Create();
+        int Create(Spiel spiel);
         void Delete(int id);
-        void Update();
+        void Update(Spiel spiel);
         int Count();
         int MaxID();
     }

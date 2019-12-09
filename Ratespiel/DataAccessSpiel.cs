@@ -42,9 +42,40 @@ namespace Ratespiel
             return count;
         }
 
-        public int Create()
+        public int Create(Spiel spiel)
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Insert into FragenAntowrten (spielnr, score, userid, fuaid, datum) " +
+                                          "values (@spielnr, @score, @userid, @fuaid, @datum)";
+
+
+                    command.Parameters.AddWithValue("@spielnr", spiel.SpielNr);
+                    command.Parameters.AddWithValue("@score", spiel.Score);
+                    command.Parameters.AddWithValue("@userid", spiel.UserId);
+                    command.Parameters.AddWithValue("@fuaid", spiel.FuAId);
+                    command.Parameters.AddWithValue("@datum", spiel.Datum);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int rows = command.ExecuteNonQuery();
+                        id = Convert.ToInt32(command.LastInsertedId);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
+
+            return id;
         }
 
         public void Delete(int id)
@@ -132,9 +163,33 @@ namespace Ratespiel
             return lstSpiel;
         }
 
-        public void Update()
+        public void Update(Spiel spiel)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Update User set spielnr = @spielnr, score = @score, userid = @userid, fuaid = @fuaid, datum = @datum where Id = @Id";
+                    command.Parameters.AddWithValue("@id", spiel.Id);
+                    command.Parameters.AddWithValue("@spielnr", spiel.SpielNr);
+                    command.Parameters.AddWithValue("@score", spiel.Score);
+                    command.Parameters.AddWithValue("@userid", spiel.UserId);
+                    command.Parameters.AddWithValue("@fuaid", spiel.FuAId);
+                    command.Parameters.AddWithValue("@datum", spiel.Datum);
+
+                    try
+                    {
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
     }
 }

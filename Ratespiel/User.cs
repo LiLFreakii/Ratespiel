@@ -14,6 +14,5 @@ namespace Ratespiel
         public string Vorname { get; set; }
         public string Nachname { get; set; }
         public string Mail { get; set; } 
-        public int ScoreId { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace Ratespiel
             {
                 using (MySqlCommand command = connection.CreateCommand())
                 {
-                    command.CommandText = "Select count(*) from Spiel";
+                    command.CommandText = "Select count(*) from User";
                     try
                     {
                         connection.Open();
@@ -42,9 +42,40 @@ namespace Ratespiel
             return count;
         }
 
-        public int Create()
+        public int Create(User user)
         {
-            throw new NotImplementedException();
+            int id = 0;
+
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Insert into User (username, passwort, vorname, nachname, mail) " +
+                                          "values (@username, @passwort, @vorname, @nachname, @mail)";
+
+
+                    command.Parameters.AddWithValue("@username", user.Username);
+                    command.Parameters.AddWithValue("@passwort", user.Passwort);
+                    command.Parameters.AddWithValue("@vorname", user.Vorname);
+                    command.Parameters.AddWithValue("@nachname", user.Nachname);
+                    command.Parameters.AddWithValue("@mail", user.Mail);
+
+                    try
+                    {
+                        connection.Open();
+
+                        int rows = command.ExecuteNonQuery();
+                        id = Convert.ToInt32(command.LastInsertedId);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
+
+            return user.Id;
         }
 
         public void Delete(int id)
@@ -118,7 +149,7 @@ namespace Ratespiel
 
             using (MySqlCommand command = connection.CreateCommand())
             {
-                command.CommandText = "Select * from User order by Nachname;";
+                command.CommandText = "Select * from User order by Nachname";
                 try
                 {
                     connection.Open();
@@ -135,7 +166,6 @@ namespace Ratespiel
                             user.Vorname = reader.IsDBNull(2) ? "" : reader.GetString("Vorname");
                             user.Nachname = reader.IsDBNull(2) ? "" : reader.GetString("Nachname");
                             user.Mail = reader.IsDBNull(3) ? "" : reader.GetString("Mail");
-                            user.ScoreId = reader.IsDBNull(4) ? 0 : reader.GetInt32("ScoreId");
                             lstUser.Add(user);
                         }
                     }
@@ -150,9 +180,33 @@ namespace Ratespiel
             return lstUser;
         }
 
-        public void Update()
+        public void Update(User user)
         {
-            throw new NotImplementedException();
+            using (MySqlConnection connection = new MySqlConnection(getConnectionString()))
+            {
+                using (MySqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "Update User set username = @username, passwort = @passwort, vorname = @vorname, nachname = @nachname, mail = @mail where Id = @Id";
+                    command.Parameters.AddWithValue("@id", user.Id);
+                    command.Parameters.AddWithValue("@username", user.Username);
+                    command.Parameters.AddWithValue("@passwort", user.Passwort);
+                    command.Parameters.AddWithValue("@vorname", user.Vorname);
+                    command.Parameters.AddWithValue("@nachname", user.Nachname);
+                    command.Parameters.AddWithValue("@mail", user.Mail);
+
+                    try
+                    {
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine("Fehler! " + ex);
+                    }
+                }
+            }
         }
     }
 }

@@ -33,6 +33,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.txtUN = new System.Windows.Forms.TextBox();
+            this.txtPW = new System.Windows.Forms.TextBox();
+            this.txtvn = new System.Windows.Forms.TextBox();
+            this.txtnn = new System.Windows.Forms.TextBox();
+            this.txtmail = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txtmaxi = new System.Windows.Forms.TextBox();
+            this.txtcount = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,11 +92,111 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // txtUN
+            // 
+            this.txtUN.Location = new System.Drawing.Point(12, 338);
+            this.txtUN.Name = "txtUN";
+            this.txtUN.Size = new System.Drawing.Size(100, 20);
+            this.txtUN.TabIndex = 6;
+            // 
+            // txtPW
+            // 
+            this.txtPW.Location = new System.Drawing.Point(118, 338);
+            this.txtPW.Name = "txtPW";
+            this.txtPW.Size = new System.Drawing.Size(100, 20);
+            this.txtPW.TabIndex = 7;
+            // 
+            // txtvn
+            // 
+            this.txtvn.Location = new System.Drawing.Point(224, 338);
+            this.txtvn.Name = "txtvn";
+            this.txtvn.Size = new System.Drawing.Size(100, 20);
+            this.txtvn.TabIndex = 8;
+            // 
+            // txtnn
+            // 
+            this.txtnn.Location = new System.Drawing.Point(330, 338);
+            this.txtnn.Name = "txtnn";
+            this.txtnn.Size = new System.Drawing.Size(100, 20);
+            this.txtnn.TabIndex = 9;
+            // 
+            // txtmail
+            // 
+            this.txtmail.Location = new System.Drawing.Point(436, 338);
+            this.txtmail.Name = "txtmail";
+            this.txtmail.Size = new System.Drawing.Size(100, 20);
+            this.txtmail.TabIndex = 10;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(547, 335);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(152, 23);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Update";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(547, 364);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(152, 23);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Anlegen";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(547, 405);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(152, 23);
+            this.button6.TabIndex = 13;
+            this.button6.Text = "MaxID";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // txtmaxi
+            // 
+            this.txtmaxi.Location = new System.Drawing.Point(436, 405);
+            this.txtmaxi.Name = "txtmaxi";
+            this.txtmaxi.Size = new System.Drawing.Size(100, 20);
+            this.txtmaxi.TabIndex = 14;
+            // 
+            // txtcount
+            // 
+            this.txtcount.Location = new System.Drawing.Point(436, 438);
+            this.txtcount.Name = "txtcount";
+            this.txtcount.Size = new System.Drawing.Size(100, 20);
+            this.txtcount.TabIndex = 15;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(547, 438);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(152, 23);
+            this.button7.TabIndex = 16;
+            this.button7.Text = "Count";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 309);
+            this.ClientSize = new System.Drawing.Size(816, 470);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.txtcount);
+            this.Controls.Add(this.txtmaxi);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.txtmail);
+            this.Controls.Add(this.txtnn);
+            this.Controls.Add(this.txtvn);
+            this.Controls.Add(this.txtPW);
+            this.Controls.Add(this.txtUN);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.button2);
@@ -105,6 +216,17 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtUN;
+        private System.Windows.Forms.TextBox txtPW;
+        private System.Windows.Forms.TextBox txtvn;
+        private System.Windows.Forms.TextBox txtnn;
+        private System.Windows.Forms.TextBox txtmail;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox txtmaxi;
+        private System.Windows.Forms.TextBox txtcount;
+        private System.Windows.Forms.Button button7;
     }
 }
 
