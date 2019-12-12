@@ -21,7 +21,7 @@ namespace Ratespiel
         {
             DataAccessUser user = new DataAccessUser();
 
-            dGV.DataSource = user.ReadALL();
+            dGV.DataSource = user.ReadAll();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Ratespiel
 
             daUser.Delete(Id);
 
-            List<User> lstUser = daUser.ReadALL();
+            List<User> lstUser = daUser.ReadAll();
             dGV.DataSource = lstUser;
         }
 
@@ -42,7 +42,7 @@ namespace Ratespiel
         {
             DataAccessUser daUser = new DataAccessUser();
 
-            List<User> lstUser = daUser.ReadALL();
+            List<User> lstUser = daUser.ReadAll();
             dGV.DataSource = lstUser;
         }
 
@@ -58,9 +58,9 @@ namespace Ratespiel
             user.Nachname = txtnn.Text;
             user.Mail = txtmail.Text;
 
-            daUser.Update(id, user.Username, user.Passwort, user.Vorname, user.Nachname, user.Mail);
+            daUser.Update(user);
 
-            List<User> lstUser = daUser.ReadALL();
+            List<User> lstUser = daUser.ReadAll();
             dGV.DataSource = lstUser;
         }
 
@@ -75,9 +75,9 @@ namespace Ratespiel
             user.Nachname = txtnn.Text;
             user.Mail = txtmail.Text;
 
-            daUser.Create(user.Username, user.Passwort, user.Vorname, user.Nachname, user.Mail);
+            daUser.Create(user);
 
-            List<User> lstUser = daUser.ReadALL();
+            List<User> lstUser = daUser.ReadAll();
             dGV.DataSource = lstUser;
         }
 
@@ -85,7 +85,7 @@ namespace Ratespiel
         {
             DataAccessUser daUser = new DataAccessUser();
 
-            int maxId = daUser.MaxID();
+            int maxId = daUser.MaxId();
             txtmaxi.Text = maxId.ToString();
         }
 
@@ -95,6 +95,13 @@ namespace Ratespiel
 
             int maxId = daUser.Count();
             txtcount.Text = maxId.ToString();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            DataAccessKategorie dataAccess = new DataAccessKategorie();
+
+            dGV.DataSource = dataAccess.ReadAll();
         }
     }
 }

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Ratespiel
 {
-    public interface IDataAccessUser
+    // generisches Interface
+    public interface IDataAccess<T>
     {
-        List<User> ReadALL();
-        int Create(User user);
+        List<T> ReadAll();
+        int Create(T t);
         void Delete(int id);
-        void Update(User user);
+        void Update(T t);
         int Count();
-        int MaxID();
+        int MaxId();
+
     }
 }
