@@ -53,7 +53,7 @@ namespace Ratespiel
 
         public override List<User> ReadAll()
         {
-            string strSql = "Select * from Spiel order by id;";
+            string strSql = "Select * from user order by id;";
             List<User> lst = DBExecuteQuery(strSql);
             return lst;
         }
@@ -84,5 +84,6 @@ namespace Ratespiel
             Parameters["vorname"].Value = t.Vorname;
             Parameters["nachname"].Value = t.Nachname;
         }
+
     }
 }

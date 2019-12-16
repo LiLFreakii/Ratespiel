@@ -25,20 +25,36 @@ namespace Ratespiel
         private void btnRegistration_Click(object sender, EventArgs e)
         {
             Form fRegi = new Registration();
-            //
             fRegi.Show();
         }
 
         private void btnEinloggen_Click(object sender, EventArgs e)
         {
-            User user = new User();
+            DataAccess<User> daUser = new DataAccessUser();
 
-            user.Username = txtUsername.Text;
-            user.Passwort = txtPasswort.Text;
+            string strUsername = txtUsername.Text.ToLower();
+            string strPasswort = txtPasswort.Text;
 
-            Form fSpiel = new Hauptfenster(user);
-            this.Close();
-            fSpiel.Show();
+            List<User> lstUser = daUser.ReadAll();
+
+            for (int i = 0; i < lstUser.Count; i++)
+            {
+                if (strUsername == lstUser[i].Username.ToLower())
+                {
+                    if (strPasswort == lstUser[i].Passwort)
+                    {
+                        MessageBox.Show("Erfolgreich eingeloggt");
+                        Form fSpiel = new Hauptfenster(lstUser[i]);
+
+                        fSpiel.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Log in Fehlgeschlagen");
+                    }
+                }
+            }
+
         }
     }
 }

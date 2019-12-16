@@ -29,7 +29,7 @@ namespace Ratespiel
 
         public override int Create(Spiel t)
         {
-            string strSql = "Insert into FragenAntowrten (spielnr, score, userid, fuaid, datum) " +
+            string strSql = "Insert into spiel (spielnr, score, userid, fuaid, datum) " +
                                           "values (@spielnr, @score, @userid, @fuaid, @datum)";
 
             SetParameterValues(t);

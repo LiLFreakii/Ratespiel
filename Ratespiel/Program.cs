@@ -17,6 +17,8 @@ namespace Ratespiel
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            //User user = new User();
+            //Application.Run(new Hauptfenster(user));
         }
     }
 }
