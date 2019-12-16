@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Ratespiel
 {
     // generisches Interface
-    public interface IDataAccess<T>
+    public interface IDataAccess<T> : IAccess
     {
         List<T> ReadAll();
         int Create(T t);
