@@ -53,6 +53,12 @@
     <Compile Include="DataAccess\DataAccessFragenAntworten.cs" />
     <Compile Include="DataAccess\DataAccessSpiel.cs" />
     <Compile Include="DataAccess\DataAccessUser.cs" />
+    <Compile Include="Forms\Highscore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Highscore.Designer.cs">
+      <DependentUpon>Highscore.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\Hauptfenster.resx">
       <DependentUpon>Hauptfenster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Highscore.resx">
+      <DependentUpon>Highscore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>

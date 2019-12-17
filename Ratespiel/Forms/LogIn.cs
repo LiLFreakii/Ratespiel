@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ratespiel
 {
-    public partial class Form1 : Form
+    public partial class LogIn : Form
     {
-        public Form1()
+        public LogIn()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace Ratespiel
 
         private void btnEinloggen_Click(object sender, EventArgs e)
         {
-            DataAccess<User> daUser = new DataAccessUser();
+            DataAccessUser daUser = new DataAccessUser();
 
             string strUsername = txtUsername.Text.ToLower();
             string strPasswort = txtPasswort.Text;
@@ -45,7 +45,7 @@ namespace Ratespiel
                     {
                         MessageBox.Show("Erfolgreich eingeloggt");
                         Form fSpiel = new Hauptfenster(lstUser[i]);
-
+                        this.Hide();
                         fSpiel.Show();
                     }
                     else

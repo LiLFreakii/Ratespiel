@@ -65,6 +65,30 @@ namespace Ratespiel
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
 
+        public List<Spiel> getHighscore(Spiel t)
+        {
+            string strSql = "Select * from Spiel where userid = @userid";
+            SetParameterValues(t);
+            List<Spiel> lst = DBExecuteQuery(strSql, Parameters.Values);
+            return lst;
+        }
+
+        public List<Spiel> getTopTen(Spiel t)
+        {
+            string strSql = "Select * from Spiel WHERE rownum <= 10 order by Score desc";
+            SetParameterValues(t);
+            List<Spiel> lst = DBExecuteQuery(strSql, Parameters.Values);
+            return lst;
+        }
+
+        public int getSpielnr()
+        {
+            string strSql = "select max(spielnr) from spiel";
+            object o = DBExecuteScalar(strSql);
+            int nSpielnr = Convert.ToInt32(o) + 1;
+            return nSpielnr;
+        }
+
         protected override void CreateDataInstance(MySqlDataReader reader, Spiel t)
         {
             t.Id = reader.GetInt32(0);

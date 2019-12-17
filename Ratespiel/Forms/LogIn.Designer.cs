@@ -1,6 +1,6 @@
 ﻿namespace Ratespiel
 {
-    partial class Form1
+    partial class LogIn
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPasswort = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -93,7 +93,7 @@
             this.btnBeenden.UseVisualStyleBackColor = true;
             this.btnBeenden.Click += new System.EventHandler(this.btnBeenden_Click);
             // 
-            // Form1
+            // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -104,8 +104,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPasswort);
             this.Controls.Add(this.txtUsername);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LogIn";
+            this.Text = "Log In";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

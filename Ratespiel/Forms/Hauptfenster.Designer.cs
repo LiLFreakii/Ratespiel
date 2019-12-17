@@ -68,6 +68,7 @@
             this.btnHighscore.TabIndex = 4;
             this.btnHighscore.Text = "Highscore";
             this.btnHighscore.UseVisualStyleBackColor = true;
+            this.btnHighscore.Click += new System.EventHandler(this.btnHighscore_Click);
             // 
             // btnBestenliste
             // 
@@ -86,6 +87,7 @@
             this.btnBeenden.TabIndex = 6;
             this.btnBeenden.Text = "Beenden";
             this.btnBeenden.UseVisualStyleBackColor = true;
+            this.btnBeenden.Click += new System.EventHandler(this.btnBeenden_Click);
             // 
             // lblUsername
             // 
@@ -168,7 +170,7 @@
             this.Controls.Add(this.btnNeuesSpiel);
             this.Controls.Add(this.txtFrage);
             this.Name = "Hauptfenster";
-            this.Text = "Hauptfenster";
+            this.Text = "Ratespiel";
             this.ResumeLayout(false);
             this.PerformLayout();
 

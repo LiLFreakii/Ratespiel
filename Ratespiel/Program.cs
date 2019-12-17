@@ -16,9 +16,13 @@ namespace Ratespiel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LogIn());
+            //Application.Run(new Registration());
             //User user = new User();
+            //Spiel spiel = new Spiel();
+            //spiel.UserId = 1;
             //Application.Run(new Hauptfenster(user));
+            // Application.Run(new Highscore(spiel));
         }
     }
 }
