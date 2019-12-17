@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ratespiel
 {
-    public class Spiel
+    public class SpielAntwort
     {
         public int Id { get; set; }
-        public int SpielNr { get; set; } 
-        public int UserId { get; set; }
-        public int Score { get; set; } 
-        public DateTime Datum { get; set; }
+        public int Spielnr { get; set; }
+        public int Fuaid { get; set; }
+        public int GepruefteAntwort { get; set; }
     }
 }

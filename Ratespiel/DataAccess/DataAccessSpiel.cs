@@ -15,7 +15,6 @@ namespace Ratespiel
             Parameters.Add("spielnr", new MySqlParameter("@spielnr", MySqlDbType.Int32));
             Parameters.Add("score", new MySqlParameter("@score", MySqlDbType.Int32));
             Parameters.Add("userid", new MySqlParameter("@userid", MySqlDbType.Int32));
-            Parameters.Add("fuaid", new MySqlParameter("@fuaid", MySqlDbType.Int32));
             Parameters.Add("datum", new MySqlParameter("@datum", MySqlDbType.Date));
         }
 
@@ -29,8 +28,8 @@ namespace Ratespiel
 
         public override int Create(Spiel t)
         {
-            string strSql = "Insert into spiel (spielnr, score, userid, fuaid, datum) " +
-                                          "values (@spielnr, @score, @userid, @fuaid, @datum)";
+            string strSql = "Insert into spiel (spielnr, score, userid, datum) " +
+                                          "values (@spielnr, @score, @userid, @datum)";
 
             SetParameterValues(t);
             return DBExecuteNonQuery(strSql, Parameters.Values);
@@ -60,7 +59,7 @@ namespace Ratespiel
 
         public override void Update(Spiel t)
         {
-            string strSql = "Update User set spielnr = @spielnr, score = @score, userid = @userid, fuaid = @fuaid, datum = @datum where Id = @Id";
+            string strSql = "Update User set spielnr = @spielnr, score = @score, userid = @userid, datum = @datum where Id = @Id";
             SetParameterValues(t);
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
@@ -83,9 +82,10 @@ namespace Ratespiel
 
         public int getSpielnr()
         {
+            int nSpielnr = 0;
             string strSql = "select max(spielnr) from spiel";
             object o = DBExecuteScalar(strSql);
-            int nSpielnr = Convert.ToInt32(o) + 1;
+            nSpielnr = Convert.ToInt32(o);
             return nSpielnr;
         }
 
@@ -95,8 +95,7 @@ namespace Ratespiel
             t.SpielNr = CheckDBNullInt(reader, 1);
             t.Score = CheckDBNullInt(reader, 2);
             t.UserId = CheckDBNullInt(reader, 3);
-            t.FuAId = CheckDBNullInt(reader, 4);
-            t.Datum = CheckDBNullDateTime(reader, 5);
+            t.Datum = CheckDBNullDateTime(reader, 4);
         }
 
         protected override void SetParameterValues(Spiel t)
@@ -105,7 +104,6 @@ namespace Ratespiel
             Parameters["spielnr"].Value = t.SpielNr;
             Parameters["score"].Value = t.Score;
             Parameters["userid"].Value = t.UserId;
-            Parameters["fuaid"].Value = t.FuAId;
             Parameters["datum"].Value = t.Datum;
         }
     }

@@ -52,7 +52,9 @@
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessFragenAntworten.cs" />
     <Compile Include="DataAccess\DataAccessSpiel.cs" />
+    <Compile Include="DataAccess\DataAccessSpielAntwort.cs" />
     <Compile Include="DataAccess\DataAccessUser.cs" />
+    <Compile Include="Data\SpielAntwort.cs" />
     <Compile Include="Forms\Highscore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +79,7 @@
     <Compile Include="Interfaces\IDataAccess.cs" />
     <Compile Include="Interfaces\IDataAccessFragenAntworten.cs" />
     <Compile Include="Interfaces\IDataAccessSpiel.cs" />
+    <Compile Include="Interfaces\IDataAccessSpielAntwort.cs" />
     <Compile Include="Interfaces\IDataAccessUser.cs" />
     <Compile Include="Data\Kategorie.cs" />
     <Compile Include="Interfaces\IAccessFactory.cs" />

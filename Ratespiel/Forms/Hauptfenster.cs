@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Ratespiel
 {
@@ -14,11 +15,14 @@ namespace Ratespiel
     {
         DataAccessFragenAntworten daFrageAntworten = new DataAccessFragenAntworten();
         DataAccessSpiel daSpiel = new DataAccessSpiel();
+        DataAccessSpielAntwort daSpielAntwort = new DataAccessSpielAntwort();
+        SpielAntwort spielantwort = null;
         List<FragenAntworten> lstFrage = null;
         int nIndex;
         int nScore;
         Spiel spiel;
         int nUserId;
+        bool bDurchlauf = true;
 
         public Hauptfenster(User user)
         {
@@ -35,6 +39,7 @@ namespace Ratespiel
             nIndex = 0;
             nScore = 0;
             nUserId = user.Id;
+            
         }
 
         private void btnNeuesSpiel_Click(object sender, EventArgs e)
@@ -48,10 +53,12 @@ namespace Ratespiel
             btnAntworten.Visible = true;
 
             setQusetion();
+            daSpiel.Create(spiel);
         }
 
         private void btnAntworten_Click(object sender, EventArgs e)
         {
+            spielantwort = new SpielAntwort();
 
             int nLoesung = lstFrage[nIndex].RichtigeAntwort;
             int nGewaehlteLoesung = 0;
@@ -75,17 +82,18 @@ namespace Ratespiel
 
             }
 
-            if (nGewaehlteLoesung == nLoesung)
+            if (nGewaehlteLoesung == nLoesung && bDurchlauf == true)
             {
                 MessageBox.Show("Antwort richtig");
-                spiel.SpielNr = daSpiel.getSpielnr();
-                spiel.FuAId = lstFrage[nIndex].Id;
-                spiel.UserId = nUserId;
-                spiel.Datum = System.DateTime.Today;
-                nScore++;
-                spiel.Score = nScore;
-                daSpiel.Create(spiel);
+                spielantwort.Fuaid = lstFrage[nIndex].Id;
+                spielantwort.GepruefteAntwort = 1;
+                
+                daSpielAntwort.Create(spielantwort);
+
+
                 nIndex++;
+                nScore++;
+
                 if (nIndex < lstFrage.Count)
                 {
                     setQusetion();
@@ -111,6 +119,9 @@ namespace Ratespiel
                 cBoxAntwort4.Visible = false;
                 btnAntworten.Visible = false;
                 txtFrage.Text = "Juhu :D! Alle Fragen richtig beantwortet. Dein Score: " + nScore;
+                bDurchlauf = false;
+                
+                daSpiel.Create(spiel);
             }
         }
 
@@ -137,6 +148,6 @@ namespace Ratespiel
         private void btnBeenden_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        } 
     }
 }
