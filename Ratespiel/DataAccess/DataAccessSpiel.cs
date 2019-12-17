@@ -85,7 +85,8 @@ namespace Ratespiel
             int nSpielnr = 0;
             string strSql = "select max(spielnr) from spiel";
             object o = DBExecuteScalar(strSql);
-            nSpielnr = Convert.ToInt32(o);
+            nSpielnr = Convert.ToInt32(o) + 1;
+            nSpielnr = Convert.ToInt32(o) + 1;
             return nSpielnr;
         }
 

@@ -35,16 +35,17 @@ namespace Ratespiel
             cBoxAntwort4.Visible = false;
             btnAntworten.Visible = false;
             lblUsername.Text = user.Username;
-            lstFrage = daFrageAntworten.ReadAll();
+            
             nIndex = 0;
             nScore = 0;
             nUserId = user.Id;
-            
+            spiel = new Spiel();
+            spiel.SpielNr = daSpiel.getSpielnr();
         }
 
         private void btnNeuesSpiel_Click(object sender, EventArgs e)
         {
-            spiel = new Spiel();
+            lstFrage = daFrageAntworten.ReadAll();
             txtFrage.Visible = true;
             cBoxAntwort1.Visible = true;
             cBoxAntwort2.Visible = true;
@@ -87,7 +88,7 @@ namespace Ratespiel
                 MessageBox.Show("Antwort richtig");
                 spielantwort.Fuaid = lstFrage[nIndex].Id;
                 spielantwort.GepruefteAntwort = 1;
-                
+                spielantwort.Spielnr = spiel.SpielNr;
                 daSpielAntwort.Create(spielantwort);
 
 
@@ -108,6 +109,11 @@ namespace Ratespiel
                 cBoxAntwort4.Visible = false;
                 btnAntworten.Visible = false;
                 txtFrage.Text = "Game Over :(. Dein Score: " + nScore;
+
+
+                nIndex = 0;
+                nScore = 0;
+                lstFrage.Clear();
             }
 
             if(nIndex == lstFrage.Count)
@@ -120,8 +126,10 @@ namespace Ratespiel
                 btnAntworten.Visible = false;
                 txtFrage.Text = "Juhu :D! Alle Fragen richtig beantwortet. Dein Score: " + nScore;
                 bDurchlauf = false;
-                
+                nIndex = 0;
+                nScore = 0;
                 daSpiel.Create(spiel);
+                lstFrage.Clear();
             }
         }
 
