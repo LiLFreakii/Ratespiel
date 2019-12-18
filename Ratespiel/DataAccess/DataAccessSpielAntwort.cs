@@ -60,6 +60,14 @@ namespace Ratespiel
             SetParameterValues(t);
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
+        public int getSpielnr()
+        {
+            int nSpielnr = 0;
+            string strSql = "select max(spielnr) from spielantwort";
+            object o = DBExecuteScalar(strSql);
+            nSpielnr = Convert.ToInt32(o) + 1;
+            return nSpielnr;
+        }
 
         protected override void CreateDataInstance(MySqlDataReader reader, SpielAntwort t)
         {

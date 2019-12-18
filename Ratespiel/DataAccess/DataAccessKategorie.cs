@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Ratespiel
 {
-   class DataAccessKategorie : DataAccess<Kategorie>, IDataAccessKategorie
+   public class DataAccessKategorie : DataAccess<Kategorie>, IDataAccessKategorie
     {
         public DataAccessKategorie()
         {

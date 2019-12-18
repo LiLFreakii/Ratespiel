@@ -48,33 +48,45 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\AccessFactory.cs" />
+    <Compile Include="DataAccess\DataAccessBestenliste.cs" />
+    <Compile Include="DataAccess\DataAccessHighscore.cs" />
     <Compile Include="DataAccess\DataAccessKategorie.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\DataAccessFragenAntworten.cs" />
     <Compile Include="DataAccess\DataAccessSpiel.cs" />
     <Compile Include="DataAccess\DataAccessSpielAntwort.cs" />
     <Compile Include="DataAccess\DataAccessUser.cs" />
+    <Compile Include="Data\Bestenliste.cs" />
+    <Compile Include="Data\Highscore.cs" />
     <Compile Include="Data\SpielAntwort.cs" />
-    <Compile Include="Forms\Highscore.cs">
+    <Compile Include="Forms\F_Bestenliste.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Highscore.Designer.cs">
-      <DependentUpon>Highscore.cs</DependentUpon>
+    <Compile Include="Forms\F_Bestenliste.Designer.cs">
+      <DependentUpon>F_Bestenliste.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LogIn.cs">
+    <Compile Include="Forms\F_Highscore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LogIn.Designer.cs">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <Compile Include="Forms\F_Highscore.Designer.cs">
+      <DependentUpon>F_Highscore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\F_LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\F_LogIn.Designer.cs">
+      <DependentUpon>F_LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\FragenAntworten.cs" />
-    <Compile Include="Forms\Hauptfenster.cs">
+    <Compile Include="Forms\F_Hauptfenster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Hauptfenster.Designer.cs">
-      <DependentUpon>Hauptfenster.cs</DependentUpon>
+    <Compile Include="Forms\F_Hauptfenster.Designer.cs">
+      <DependentUpon>F_Hauptfenster.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAccess.cs" />
+    <Compile Include="Interfaces\IDataAccessBestenliste.cs" />
+    <Compile Include="Interfaces\IDataAccessHighscore.cs" />
     <Compile Include="Interfaces\IDataAccessKategorie.cs" />
     <Compile Include="Interfaces\IDataAccess.cs" />
     <Compile Include="Interfaces\IDataAccessFragenAntworten.cs" />
@@ -87,23 +99,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Data\Spiel.cs" />
     <Compile Include="Data\User.cs" />
-    <Compile Include="Forms\Registration.cs">
+    <Compile Include="Forms\F_Registration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <Compile Include="Forms\F_Registration.Designer.cs">
+      <DependentUpon>F_Registration.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Hauptfenster.resx">
-      <DependentUpon>Hauptfenster.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\F_Bestenliste.resx">
+      <DependentUpon>F_Bestenliste.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Highscore.resx">
-      <DependentUpon>Highscore.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\F_Hauptfenster.resx">
+      <DependentUpon>F_Hauptfenster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LogIn.resx">
-      <DependentUpon>LogIn.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\F_Highscore.resx">
+      <DependentUpon>F_Highscore.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\F_LogIn.resx">
+      <DependentUpon>F_LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\F_Registration.resx">
+      <DependentUpon>F_Registration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

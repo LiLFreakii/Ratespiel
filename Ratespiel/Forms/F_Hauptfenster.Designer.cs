@@ -40,6 +40,9 @@
             this.cBoxAntwort4 = new System.Windows.Forms.CheckBox();
             this.btnAntworten = new System.Windows.Forms.Button();
             this.lblScore = new System.Windows.Forms.Label();
+            this.btnUserHinzufügen = new System.Windows.Forms.Button();
+            this.btnFrageHinzufügen = new System.Windows.Forms.Button();
+            this.btnUserLöschen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFrage
@@ -78,6 +81,7 @@
             this.btnBestenliste.TabIndex = 5;
             this.btnBestenliste.Text = "Bestenliste";
             this.btnBestenliste.UseVisualStyleBackColor = true;
+            this.btnBestenliste.Click += new System.EventHandler(this.btnBestenliste_Click);
             // 
             // btnBeenden
             // 
@@ -92,11 +96,11 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(829, 9);
+            this.lblUsername.Location = new System.Drawing.Point(807, 9);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(10, 13);
+            this.lblUsername.Size = new System.Drawing.Size(32, 13);
             this.lblUsername.TabIndex = 7;
-            this.lblUsername.Text = " ";
+            this.lblUsername.Text = " User";
             // 
             // cBoxAntwort1
             // 
@@ -136,7 +140,7 @@
             // 
             // btnAntworten
             // 
-            this.btnAntworten.Location = new System.Drawing.Point(262, 269);
+            this.btnAntworten.Location = new System.Drawing.Point(648, 269);
             this.btnAntworten.Name = "btnAntworten";
             this.btnAntworten.Size = new System.Drawing.Size(191, 23);
             this.btnAntworten.TabIndex = 12;
@@ -147,16 +151,50 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(259, 17);
+            this.lblScore.Location = new System.Drawing.Point(259, 9);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(0, 13);
+            this.lblScore.Size = new System.Drawing.Size(35, 13);
             this.lblScore.TabIndex = 13;
+            this.lblScore.Text = "Score";
+            // 
+            // btnUserHinzufügen
+            // 
+            this.btnUserHinzufügen.Location = new System.Drawing.Point(12, 240);
+            this.btnUserHinzufügen.Name = "btnUserHinzufügen";
+            this.btnUserHinzufügen.Size = new System.Drawing.Size(191, 23);
+            this.btnUserHinzufügen.TabIndex = 14;
+            this.btnUserHinzufügen.Text = "User hinzufügen";
+            this.btnUserHinzufügen.UseVisualStyleBackColor = true;
+            this.btnUserHinzufügen.Click += new System.EventHandler(this.btnUserHinzufügen_Click);
+            // 
+            // btnFrageHinzufügen
+            // 
+            this.btnFrageHinzufügen.Location = new System.Drawing.Point(12, 269);
+            this.btnFrageHinzufügen.Name = "btnFrageHinzufügen";
+            this.btnFrageHinzufügen.Size = new System.Drawing.Size(191, 23);
+            this.btnFrageHinzufügen.TabIndex = 15;
+            this.btnFrageHinzufügen.Text = "Frage hinzufügen";
+            this.btnFrageHinzufügen.UseVisualStyleBackColor = true;
+            this.btnFrageHinzufügen.Click += new System.EventHandler(this.btnFrageHinzufügen_Click);
+            // 
+            // btnUserLöschen
+            // 
+            this.btnUserLöschen.Location = new System.Drawing.Point(12, 298);
+            this.btnUserLöschen.Name = "btnUserLöschen";
+            this.btnUserLöschen.Size = new System.Drawing.Size(191, 23);
+            this.btnUserLöschen.TabIndex = 16;
+            this.btnUserLöschen.Text = "User löschen";
+            this.btnUserLöschen.UseVisualStyleBackColor = true;
+            this.btnUserLöschen.Click += new System.EventHandler(this.btnUserLöschen_Click);
             // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 343);
+            this.Controls.Add(this.btnUserLöschen);
+            this.Controls.Add(this.btnFrageHinzufügen);
+            this.Controls.Add(this.btnUserHinzufügen);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnAntworten);
             this.Controls.Add(this.cBoxAntwort4);
@@ -190,5 +228,8 @@
         private System.Windows.Forms.CheckBox cBoxAntwort4;
         private System.Windows.Forms.Button btnAntworten;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Button btnUserHinzufügen;
+        private System.Windows.Forms.Button btnFrageHinzufügen;
+        private System.Windows.Forms.Button btnUserLöschen;
     }
 }

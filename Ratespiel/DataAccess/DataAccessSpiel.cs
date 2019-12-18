@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Ratespiel
 {
-    class DataAccessSpiel : DataAccess<Spiel>, IDataAccessSpiel
+    public class DataAccessSpiel : DataAccess<Spiel>, IDataAccessSpiel
     {
         public DataAccessSpiel()
         {
@@ -64,30 +64,12 @@ namespace Ratespiel
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
 
-        public List<Spiel> getHighscore(Spiel t)
+        public string getRolle(int id)
         {
-            string strSql = "Select * from Spiel where userid = @userid";
-            SetParameterValues(t);
-            List<Spiel> lst = DBExecuteQuery(strSql, Parameters.Values);
-            return lst;
-        }
-
-        public List<Spiel> getTopTen(Spiel t)
-        {
-            string strSql = "Select * from Spiel WHERE rownum <= 10 order by Score desc";
-            SetParameterValues(t);
-            List<Spiel> lst = DBExecuteQuery(strSql, Parameters.Values);
-            return lst;
-        }
-
-        public int getSpielnr()
-        {
-            int nSpielnr = 0;
-            string strSql = "select max(spielnr) from spiel";
-            object o = DBExecuteScalar(strSql);
-            nSpielnr = Convert.ToInt32(o) + 1;
-            nSpielnr = Convert.ToInt32(o) + 1;
-            return nSpielnr;
+            string strSql = "Select Rolle from User where id = @id";
+            Parameters["id"].Value = id;
+            string strRolle = DBExecuteScalar(strSql).ToString();
+            return strRolle;
         }
 
         protected override void CreateDataInstance(MySqlDataReader reader, Spiel t)

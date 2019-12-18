@@ -1,6 +1,6 @@
 ﻿namespace Ratespiel
 {
-    partial class Highscore
+    partial class F_Highscore
     {
         /// <summary>
         /// Required designer variable.

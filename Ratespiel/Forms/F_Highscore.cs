@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace Ratespiel
 {
-    public partial class Highscore : Form
+    public partial class F_Highscore : Form
     {
-        public Highscore(Spiel spiel)
+        public F_Highscore(Spiel spiel)
         {
             InitializeComponent();
-            DataAccessSpiel daSpiel = new DataAccessSpiel();
-            dGVHighscore.DataSource = daSpiel.getHighscore(spiel);
+            DataAccessHighscore daHighscore = new DataAccessHighscore();
+            dGVHighscore.DataSource = daHighscore.getHighscore(spiel.UserId);
+            dGVHighscore.Columns[0].Visible = false;
+            dGVHighscore.Columns[2].Visible = false;
         }
 
         private void btnSchließen_Click(object sender, EventArgs e)

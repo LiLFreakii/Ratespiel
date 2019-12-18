@@ -34,17 +34,31 @@ namespace Ratespiel
             cBoxAntwort3.Visible = false;
             cBoxAntwort4.Visible = false;
             btnAntworten.Visible = false;
+            btnFrageHinzufügen.Visible = false;
+            btnUserHinzufügen.Visible = false;
             lblUsername.Text = user.Username;
+            lblScore.Text = "";
             
-            nIndex = 0;
-            nScore = 0;
             nUserId = user.Id;
             spiel = new Spiel();
-            spiel.SpielNr = daSpiel.getSpielnr();
+
+            spiel.UserId = nUserId;
+            spiel.Score = nScore;
+            spiel.Datum = System.DateTime.Today;
+
+            if (user.Rolle == "A") 
+            {
+                btnFrageHinzufügen.Visible = true;
+                btnUserHinzufügen.Visible = true;
+            }
         }
 
         private void btnNeuesSpiel_Click(object sender, EventArgs e)
         {
+            spiel.SpielNr = daSpielAntwort.getSpielnr();
+
+            nIndex = 0;
+            nScore = 0;
             lstFrage = daFrageAntworten.ReadAll();
             txtFrage.Visible = true;
             cBoxAntwort1.Visible = true;
@@ -54,7 +68,6 @@ namespace Ratespiel
             btnAntworten.Visible = true;
 
             setQusetion();
-            daSpiel.Create(spiel);
         }
 
         private void btnAntworten_Click(object sender, EventArgs e)
@@ -63,6 +76,7 @@ namespace Ratespiel
 
             int nLoesung = lstFrage[nIndex].RichtigeAntwort;
             int nGewaehlteLoesung = 0;
+            bDurchlauf = true;
 
             if (cBoxAntwort1.Checked)
             {
@@ -95,6 +109,7 @@ namespace Ratespiel
                 nIndex++;
                 nScore++;
 
+                lblScore.Text = "Score: " + nScore.ToString();
                 if (nIndex < lstFrage.Count)
                 {
                     setQusetion();
@@ -109,15 +124,22 @@ namespace Ratespiel
                 cBoxAntwort4.Visible = false;
                 btnAntworten.Visible = false;
                 txtFrage.Text = "Game Over :(. Dein Score: " + nScore;
-
+                bDurchlauf = false;
+                lblScore.Text = "Score: " + nScore.ToString();
+                
+                spiel.UserId = nUserId;
+                spiel.Score = nScore;
+                spiel.Datum = System.DateTime.Today;
+                daSpiel.Create(spiel);
 
                 nIndex = 0;
                 nScore = 0;
                 lstFrage.Clear();
             }
 
-            if(nIndex == lstFrage.Count)
+            if(nIndex == lstFrage.Count && bDurchlauf == true)
             {
+                lblScore.Text = "Score: " + nScore.ToString();
                 MessageBox.Show("Alle Fragen beantwortet. Spiel beendet");
                 cBoxAntwort1.Visible = false;
                 cBoxAntwort2.Visible = false;
@@ -125,12 +147,34 @@ namespace Ratespiel
                 cBoxAntwort4.Visible = false;
                 btnAntworten.Visible = false;
                 txtFrage.Text = "Juhu :D! Alle Fragen richtig beantwortet. Dein Score: " + nScore;
+                
+                lstFrage.Clear();
+                
+                spiel.UserId = nUserId;
+                spiel.Score = nScore;
+                spiel.Datum = System.DateTime.Today;
+                daSpiel.Create(spiel);
                 bDurchlauf = false;
                 nIndex = 0;
                 nScore = 0;
-                daSpiel.Create(spiel);
-                lstFrage.Clear();
             }
+        }
+
+        private void btnHighscore_Click(object sender, EventArgs e)
+        {
+            Form fHighscore = new F_Highscore(spiel);
+            fHighscore.Show();
+        }
+
+        private void btnBeenden_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnBestenliste_Click(object sender, EventArgs e)
+        {
+            Form fBestenliste = new F_Bestenliste();
+            fBestenliste.Show();
         }
 
         private void setQusetion()
@@ -147,15 +191,20 @@ namespace Ratespiel
             cBoxAntwort4.Text = lstFrage[nIndex].Antwort4;
         }
 
-        private void btnHighscore_Click(object sender, EventArgs e)
+        private void btnUserHinzufügen_Click(object sender, EventArgs e)
         {
-            Form fHighscore = new Highscore(spiel);
-            fHighscore.Show();
+            Form fRegi = new Registration();
+            fRegi.Show();
         }
 
-        private void btnBeenden_Click(object sender, EventArgs e)
+        private void btnFrageHinzufügen_Click(object sender, EventArgs e)
         {
-            this.Close();
-        } 
+
+        }
+
+        private void btnUserLöschen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

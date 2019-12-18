@@ -17,6 +17,7 @@ namespace Ratespiel
             Parameters.Add("mail", new MySqlParameter("@mail", MySqlDbType.String));
             Parameters.Add("vorname", new MySqlParameter("@vorname", MySqlDbType.String));
             Parameters.Add("nachname", new MySqlParameter("@nachname", MySqlDbType.String));
+            Parameters.Add("rolle", new MySqlParameter("@rolle", MySqlDbType.String));
         }
 
         public override int Count()
@@ -29,8 +30,8 @@ namespace Ratespiel
 
         public override int Create(User t)
         {
-            string strSql = "Insert into User (username, passwort, mail, vorname, nachname) " +
-                                          "values (@username, @passwort, @mail, @vorname, @nachname)";
+            string strSql = "Insert into User (username, passwort, mail, vorname, nachname, rolle) " +
+                                          "values (@username, @passwort, @mail, @vorname, @nachname, @rolle)";
 
             SetParameterValues(t);
             return DBExecuteNonQuery(strSql, Parameters.Values);
@@ -60,7 +61,8 @@ namespace Ratespiel
 
         public override void Update(User t)
         {
-            string strSql = "Update User set username = @username, passwort = @passwort, mail = @mail, vorname = @vorname, nachname = @nachname where Id = @Id";
+            string strSql = "Update User set username = @username, passwort = @passwort, mail = @mail, vorname = @vorname, " +
+                            "nachname = @nachname, rolle = @rolle where Id = @Id";
             SetParameterValues(t);
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
@@ -73,6 +75,7 @@ namespace Ratespiel
             t.Mail = CheckDBNullString(reader, 3);
             t.Vorname = CheckDBNullString(reader, 4);
             t.Nachname = CheckDBNullString(reader, 5);
+            t.Rolle = CheckDBNullString(reader, 6);
         }
 
         protected override void SetParameterValues(User t)
@@ -83,6 +86,7 @@ namespace Ratespiel
             Parameters["mail"].Value = t.Mail;
             Parameters["vorname"].Value = t.Vorname;
             Parameters["nachname"].Value = t.Nachname;
+            Parameters["rolle"].Value = t.Rolle;
         }
 
     }

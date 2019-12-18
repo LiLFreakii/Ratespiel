@@ -12,9 +12,11 @@ namespace Ratespiel
 {
     public partial class LogIn : Form
     {
+        User user;
         public LogIn()
         {
             InitializeComponent();
+            user = new User();
         }
 
         private void btnBeenden_Click(object sender, EventArgs e)
@@ -43,6 +45,12 @@ namespace Ratespiel
                 {
                     if (strPasswort == lstUser[i].Passwort)
                     {
+                        user.Username = lstUser[i].Username;
+                        user.Passwort = lstUser[i].Passwort;
+                        user.Vorname = lstUser[i].Vorname;
+                        user.Nachname = lstUser[i].Nachname;
+                        user.Mail = lstUser[i].Mail;
+                        user.Rolle = lstUser[i].Rolle;
                         MessageBox.Show("Erfolgreich eingeloggt");
                         Form fSpiel = new Hauptfenster(lstUser[i]);
                         this.Hide();
