@@ -101,6 +101,12 @@
     <Compile Include="Forms\F_Hauptfenster.Designer.cs">
       <DependentUpon>F_Hauptfenster.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HinzufügenFrage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HinzufügenFrage.Designer.cs">
+      <DependentUpon>HinzufügenFrage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IAccess.cs" />
     <Compile Include="Interfaces\IDataAccessBestenliste.cs" />
     <Compile Include="Interfaces\IDataAccessHighscore.cs" />
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\F_Registration.resx">
       <DependentUpon>F_Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HinzufügenFrage.resx">
+      <DependentUpon>HinzufügenFrage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
