@@ -42,7 +42,6 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.btnUserHinzufügen = new System.Windows.Forms.Button();
             this.btnFrageHinzufügen = new System.Windows.Forms.Button();
-            this.btnUserLöschen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtFrage
@@ -163,7 +162,7 @@
             this.btnUserHinzufügen.Name = "btnUserHinzufügen";
             this.btnUserHinzufügen.Size = new System.Drawing.Size(191, 23);
             this.btnUserHinzufügen.TabIndex = 14;
-            this.btnUserHinzufügen.Text = "User hinzufügen";
+            this.btnUserHinzufügen.Text = "User hinzufügen/löschen";
             this.btnUserHinzufügen.UseVisualStyleBackColor = true;
             this.btnUserHinzufügen.Click += new System.EventHandler(this.btnUserHinzufügen_Click);
             // 
@@ -177,22 +176,11 @@
             this.btnFrageHinzufügen.UseVisualStyleBackColor = true;
             this.btnFrageHinzufügen.Click += new System.EventHandler(this.btnFrageHinzufügen_Click);
             // 
-            // btnUserLöschen
-            // 
-            this.btnUserLöschen.Location = new System.Drawing.Point(12, 298);
-            this.btnUserLöschen.Name = "btnUserLöschen";
-            this.btnUserLöschen.Size = new System.Drawing.Size(191, 23);
-            this.btnUserLöschen.TabIndex = 16;
-            this.btnUserLöschen.Text = "User löschen";
-            this.btnUserLöschen.UseVisualStyleBackColor = true;
-            this.btnUserLöschen.Click += new System.EventHandler(this.btnUserLöschen_Click);
-            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 343);
-            this.Controls.Add(this.btnUserLöschen);
             this.Controls.Add(this.btnFrageHinzufügen);
             this.Controls.Add(this.btnUserHinzufügen);
             this.Controls.Add(this.lblScore);
@@ -230,6 +218,5 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Button btnUserHinzufügen;
         private System.Windows.Forms.Button btnFrageHinzufügen;
-        private System.Windows.Forms.Button btnUserLöschen;
     }
 }

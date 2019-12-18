@@ -16,5 +16,6 @@ namespace Ratespiel
         public string Antwort4 { get; set; }
         public int RichtigeAntwort { get; set; }
         public int Schwierigkeit { get; set; }
+        public int KategorieId { get; set; }
     }
 }

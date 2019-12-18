@@ -19,6 +19,7 @@ namespace Ratespiel
             Parameters.Add("antwort4", new MySqlParameter("@antwort4", MySqlDbType.String));
             Parameters.Add("richigeAntwort", new MySqlParameter("@richigeAntwort", MySqlDbType.Int32));
             Parameters.Add("schwierigkeit", new MySqlParameter("@schwierigkeit", MySqlDbType.Int32));
+            Parameters.Add("kategorieid", new MySqlParameter("@kategorieid", MySqlDbType.Int32));
         }
 
         public override int Count()
@@ -31,8 +32,8 @@ namespace Ratespiel
 
         public override int Create(FragenAntworten t)
         {
-            string strSql = "Insert into FragenAntowrten (frage, antwort1, antwort2, antwort3, antwort4, richtigeantwort, schwierigkeit) " +
-                                          "values (@frage, @antwort1, @antwort2, @antwort3, @antwort4, @richtigeantwort, @schwierigkeit)";
+            string strSql = "Insert into FragenAntowrten (frage, antwort1, antwort2, antwort3, antwort4, richtigeantwort, schwierigkeit, kategorieid) " +
+                            "values (@frage, @antwort1, @antwort2, @antwort3, @antwort4, @richtigeantwort, @schwierigkeit, @kategorieid)";
 
             SetParameterValues(t);
             return DBExecuteNonQuery(strSql, Parameters.Values);
@@ -62,7 +63,8 @@ namespace Ratespiel
 
         public override void Update(FragenAntworten t)
         {
-            string strSql = "Update fragenantworten set frage = @frage, antwort1 = @antwort1, antwort2 = @antwort2, antwort3 = @antwort3, antwort4 = @antwort4, richtigeAntwort = @richtigeAntwort, schwierigkeit = @schwierigkeit where Id = @Id";
+            string strSql = "Update fragenantworten set frage = @frage, antwort1 = @antwort1, antwort2 = @antwort2, antwort3 = @antwort3, antwort4 = @antwort4, " +
+                            "richtigeAntwort = @richtigeAntwort, schwierigkeit = @schwierigkeit, kategorieid = @kategorieid where Id = @Id";
             SetParameterValues(t);
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
@@ -77,6 +79,7 @@ namespace Ratespiel
             t.Antwort4 = CheckDBNullString(reader, 5);
             t.RichtigeAntwort = CheckDBNullInt(reader, 6);
             t.Schwierigkeit = CheckDBNullInt(reader, 7);
+            t.KategorieId = CheckDBNullInt(reader, 8);
         }
 
         protected override void SetParameterValues(FragenAntworten t)
@@ -89,6 +92,7 @@ namespace Ratespiel
             Parameters["antwort4"].Value = t.Antwort4;
             Parameters["richtigeAntwort"].Value = t.RichtigeAntwort;
             Parameters["schwierigkeit"].Value = t.Schwierigkeit;
+            Parameters["kategorieid"].Value = t.Schwierigkeit;
         }
     }
 }

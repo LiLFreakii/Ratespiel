@@ -193,13 +193,14 @@ namespace Ratespiel
 
         private void btnUserHinzufügen_Click(object sender, EventArgs e)
         {
-            Form fRegi = new Registration();
+            Form fRegi = new F_HinzufügenUser();
             fRegi.Show();
         }
 
         private void btnFrageHinzufügen_Click(object sender, EventArgs e)
         {
-
+            Form fFrageHinzufügen = new F_HinzufügenFrage();
+            fFrageHinzufügen.Show();
         }
 
         private void btnUserLöschen_Click(object sender, EventArgs e)
