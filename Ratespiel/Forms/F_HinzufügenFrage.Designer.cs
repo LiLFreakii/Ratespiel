@@ -141,6 +141,7 @@
             this.cboxKat.Name = "cboxKat";
             this.cboxKat.Size = new System.Drawing.Size(121, 21);
             this.cboxKat.TabIndex = 11;
+            this.cboxKat.Text = "0";
             // 
             // F_HinzufügenFrage
             // 
