@@ -12,6 +12,8 @@ namespace Ratespiel
 {
     public partial class F_HinzufügenUser : Form
     {
+        List<User> lstUser;
+        User user;
         public F_HinzufügenUser()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace Ratespiel
         private void btnAnlegen_Click(object sender, EventArgs e)
         {
             DataAccessUser daUser = new DataAccessUser();
-            User user = new User();
+            user = new User();
 
             user.Username = txtUsername.Text;
             user.Passwort = txtPasswort.Text;
@@ -44,23 +46,50 @@ namespace Ratespiel
             try
             {
                 daUser.Create(user);
+                MessageBox.Show("User erfolgreich angelegt");
+                this.Hide();
             }catch(Exception)
             {
                 MessageBox.Show("Fehler. User konnte nicht angelegt werden");
             }
-            
+
+            cboxFuellen();
         }
 
         public void cboxFuellen()
         {
             DataAccessUser daUser = new DataAccessUser();
 
-            List<User> lstUser =  daUser.ReadAll();
+            lstUser =  daUser.ReadAll();
 
             foreach (User user in lstUser)
             {
                 cboxUser.Items.Add(user);
             }
+        }
+
+        private void btnLöschen_Click(object sender, EventArgs e)
+        {
+            DataAccessUser daUser = new DataAccessUser();
+            DataAccessSpiel daSpiel = new DataAccessSpiel();
+            User user = cboxUser.SelectedItem as User;
+            int nId = Convert.ToInt32(user.Id);
+
+            try
+            {
+                daUser.Delete(nId);
+                MessageBox.Show("User erfolgreich gelöscht");
+                this.Hide();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("User konnte nicht gelöscht werden");
+            }
+
+
+            //user.Username = cboxUser.SelectedItem.ToString();
+
+
         }
     }
 }

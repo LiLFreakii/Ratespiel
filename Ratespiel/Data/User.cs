@@ -18,7 +18,7 @@ namespace Ratespiel
 
         public override string ToString()
         {
-            return Username;
+            return Id + " " + Username;
         }
     }
 }

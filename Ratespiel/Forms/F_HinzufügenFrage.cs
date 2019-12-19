@@ -33,7 +33,16 @@ namespace Ratespiel
             fragenAntworten.RichtigeAntwort = Convert.ToInt32(txtRichtigeAntwort);
             fragenAntworten.KategorieId = Convert.ToInt32(cboxKat.Text);
 
-            daFrageAntworten.Create(fragenAntworten);
+            try
+            {
+                daFrageAntworten.Create(fragenAntworten);
+                MessageBox.Show("Frage erfolgreich angelegt");
+                this.Hide();
+            } catch (Exception)
+            {
+                MessageBox.Show("Frage konnte nicht angelegt werden");
+            }
+            
         }
 
         private void btnAbbrechen_Click(object sender, EventArgs e)

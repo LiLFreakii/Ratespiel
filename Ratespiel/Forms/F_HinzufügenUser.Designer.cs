@@ -109,9 +109,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Ratespiel.Properties.Resources.User;
-            this.pictureBox1.Location = new System.Drawing.Point(388, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(393, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(353, 149);
+            this.pictureBox1.Size = new System.Drawing.Size(348, 149);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -133,6 +133,7 @@
             this.btnLöschen.TabIndex = 10;
             this.btnLöschen.Text = "Löschen";
             this.btnLöschen.UseVisualStyleBackColor = true;
+            this.btnLöschen.Click += new System.EventHandler(this.btnLöschen_Click);
             // 
             // cboxUser
             // 
