@@ -42,6 +42,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.btnUserHinzufügen = new System.Windows.Forms.Button();
             this.btnFrageHinzufügen = new System.Windows.Forms.Button();
+            this.cboxKat = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtFrage
@@ -54,7 +55,7 @@
             // 
             // btnNeuesSpiel
             // 
-            this.btnNeuesSpiel.Location = new System.Drawing.Point(12, 12);
+            this.btnNeuesSpiel.Location = new System.Drawing.Point(12, 39);
             this.btnNeuesSpiel.Name = "btnNeuesSpiel";
             this.btnNeuesSpiel.Size = new System.Drawing.Size(191, 23);
             this.btnNeuesSpiel.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             // btnHighscore
             // 
-            this.btnHighscore.Location = new System.Drawing.Point(12, 41);
+            this.btnHighscore.Location = new System.Drawing.Point(12, 72);
             this.btnHighscore.Name = "btnHighscore";
             this.btnHighscore.Size = new System.Drawing.Size(191, 23);
             this.btnHighscore.TabIndex = 4;
@@ -74,7 +75,7 @@
             // 
             // btnBestenliste
             // 
-            this.btnBestenliste.Location = new System.Drawing.Point(12, 70);
+            this.btnBestenliste.Location = new System.Drawing.Point(12, 101);
             this.btnBestenliste.Name = "btnBestenliste";
             this.btnBestenliste.Size = new System.Drawing.Size(191, 23);
             this.btnBestenliste.TabIndex = 5;
@@ -84,7 +85,7 @@
             // 
             // btnBeenden
             // 
-            this.btnBeenden.Location = new System.Drawing.Point(12, 101);
+            this.btnBeenden.Location = new System.Drawing.Point(12, 130);
             this.btnBeenden.Name = "btnBeenden";
             this.btnBeenden.Size = new System.Drawing.Size(191, 23);
             this.btnBeenden.TabIndex = 6;
@@ -176,11 +177,20 @@
             this.btnFrageHinzufügen.UseVisualStyleBackColor = true;
             this.btnFrageHinzufügen.Click += new System.EventHandler(this.btnFrageHinzufügen_Click);
             // 
+            // cboxKat
+            // 
+            this.cboxKat.FormattingEnabled = true;
+            this.cboxKat.Location = new System.Drawing.Point(12, 12);
+            this.cboxKat.Name = "cboxKat";
+            this.cboxKat.Size = new System.Drawing.Size(191, 21);
+            this.cboxKat.TabIndex = 16;
+            // 
             // Hauptfenster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 343);
+            this.Controls.Add(this.cboxKat);
             this.Controls.Add(this.btnFrageHinzufügen);
             this.Controls.Add(this.btnUserHinzufügen);
             this.Controls.Add(this.lblScore);
@@ -218,5 +228,6 @@
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Button btnUserHinzufügen;
         private System.Windows.Forms.Button btnFrageHinzufügen;
+        private System.Windows.Forms.ComboBox cboxKat;
     }
 }

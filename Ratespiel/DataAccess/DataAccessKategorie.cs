@@ -60,6 +60,15 @@ namespace Ratespiel
             DBExecuteNonQuery(strSql, Parameters.Values);
         }
 
+        public int getKatId(string strKatbez)
+        {
+            string strSql = "select Id from kategorie where Kategorie = '" + strKatbez + "'";
+            //Parameters["kategorie"].Value = strKatbez;
+            object o = DBExecuteScalar(strSql);
+            int nId = Convert.ToInt32(o);
+            return nId;
+        }
+
         protected override void CreateDataInstance(MySqlDataReader reader, Kategorie t)
         {
             t.id = reader.GetInt32(0);

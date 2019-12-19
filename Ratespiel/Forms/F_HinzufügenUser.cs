@@ -85,11 +85,6 @@ namespace Ratespiel
             {
                 MessageBox.Show("User konnte nicht gelöscht werden");
             }
-
-
-            //user.Username = cboxUser.SelectedItem.ToString();
-
-
         }
     }
 }

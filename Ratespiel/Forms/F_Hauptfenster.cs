@@ -46,6 +46,8 @@ namespace Ratespiel
             spiel.Score = nScore;
             spiel.Datum = System.DateTime.Today;
 
+            cboxFuellen();
+
             if (user.Rolle == "A") 
             {
                 btnFrageHinzufügen.Visible = true;
@@ -56,17 +58,18 @@ namespace Ratespiel
         private void btnNeuesSpiel_Click(object sender, EventArgs e)
         {
             spiel.SpielNr = daSpielAntwort.getSpielnr();
-
+            DataAccessKategorie daKategorie = new DataAccessKategorie();
             nIndex = 0;
             nScore = 0;
-            lstFrage = daFrageAntworten.ReadAll();
+            string strKategorie = cboxKat.Text;
+            int nId = daKategorie.getKatId(strKategorie);
+            lstFrage = daFrageAntworten.getQuestion(nId);
             txtFrage.Visible = true;
             cBoxAntwort1.Visible = true;
             cBoxAntwort2.Visible = true;
             cBoxAntwort3.Visible = true;
             cBoxAntwort4.Visible = true;
             btnAntworten.Visible = true;
-
             setQusetion();
         }
 
@@ -202,10 +205,16 @@ namespace Ratespiel
             Form fFrageHinzufügen = new F_HinzufügenFrage();
             fFrageHinzufügen.Show();
         }
-
-        private void btnUserLöschen_Click(object sender, EventArgs e)
+        public void cboxFuellen()
         {
+            DataAccessKategorie daKat = new DataAccessKategorie();
 
+            List<Kategorie> lstKat = daKat.ReadAll();
+
+            foreach (Kategorie kategorie in lstKat)
+            {
+                cboxKat.Items.Add(kategorie);
+            }
         }
     }
 }

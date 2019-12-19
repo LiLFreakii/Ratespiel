@@ -61,6 +61,14 @@ namespace Ratespiel
             return lst;
         }
 
+        public List<FragenAntworten> getQuestion(int nId)
+        {
+            string strSql = "Select * from fragenantworten where kategorieId = @id";
+            Parameters["id"].Value = nId;
+            List<FragenAntworten> lst = DBExecuteQuery(strSql);
+            return lst;
+        }
+
         public override void Update(FragenAntworten t)
         {
             string strSql = "Update fragenantworten set frage = @frage, antwort1 = @antwort1, antwort2 = @antwort2, antwort3 = @antwort3, antwort4 = @antwort4, " +
