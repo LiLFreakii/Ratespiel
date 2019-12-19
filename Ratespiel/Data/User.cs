@@ -15,5 +15,10 @@ namespace Ratespiel
         public string Nachname { get; set; }
         public string Mail { get; set; } 
         public string Rolle { get; set; }
+
+        public override string ToString()
+        {
+            return Username;
+        }
     }
 }

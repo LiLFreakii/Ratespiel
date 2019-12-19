@@ -28,118 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txtFrage = new System.Windows.Forms.TextBox();
+            this.txtAntwort1 = new System.Windows.Forms.TextBox();
+            this.txtAntwort2 = new System.Windows.Forms.TextBox();
+            this.txtAntwort3 = new System.Windows.Forms.TextBox();
+            this.txtAntwort4 = new System.Windows.Forms.TextBox();
+            this.txtRichtigeAntwort = new System.Windows.Forms.TextBox();
+            this.txtSchwierigkeit = new System.Windows.Forms.TextBox();
+            this.btnHinzufügenFrage = new System.Windows.Forms.Button();
+            this.btnAbbrechenFrage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cboxKat = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtFrage
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtFrage.Location = new System.Drawing.Point(12, 12);
+            this.txtFrage.Name = "txtFrage";
+            this.txtFrage.Size = new System.Drawing.Size(109, 20);
+            this.txtFrage.TabIndex = 0;
             // 
-            // textBox2
+            // txtAntwort1
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(109, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtAntwort1.Location = new System.Drawing.Point(127, 12);
+            this.txtAntwort1.Name = "txtAntwort1";
+            this.txtAntwort1.Size = new System.Drawing.Size(109, 20);
+            this.txtAntwort1.TabIndex = 1;
             // 
-            // textBox3
+            // txtAntwort2
             // 
-            this.textBox3.Location = new System.Drawing.Point(242, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(109, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtAntwort2.Location = new System.Drawing.Point(242, 12);
+            this.txtAntwort2.Name = "txtAntwort2";
+            this.txtAntwort2.Size = new System.Drawing.Size(109, 20);
+            this.txtAntwort2.TabIndex = 2;
             // 
-            // textBox4
+            // txtAntwort3
             // 
-            this.textBox4.Location = new System.Drawing.Point(357, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(109, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtAntwort3.Location = new System.Drawing.Point(357, 12);
+            this.txtAntwort3.Name = "txtAntwort3";
+            this.txtAntwort3.Size = new System.Drawing.Size(109, 20);
+            this.txtAntwort3.TabIndex = 3;
             // 
-            // textBox5
+            // txtAntwort4
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 38);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(109, 20);
-            this.textBox5.TabIndex = 4;
+            this.txtAntwort4.Location = new System.Drawing.Point(12, 38);
+            this.txtAntwort4.Name = "txtAntwort4";
+            this.txtAntwort4.Size = new System.Drawing.Size(109, 20);
+            this.txtAntwort4.TabIndex = 4;
             // 
-            // textBox6
+            // txtRichtigeAntwort
             // 
-            this.textBox6.Location = new System.Drawing.Point(127, 38);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(109, 20);
-            this.textBox6.TabIndex = 5;
+            this.txtRichtigeAntwort.Location = new System.Drawing.Point(127, 38);
+            this.txtRichtigeAntwort.Name = "txtRichtigeAntwort";
+            this.txtRichtigeAntwort.Size = new System.Drawing.Size(109, 20);
+            this.txtRichtigeAntwort.TabIndex = 5;
             // 
-            // textBox7
+            // txtSchwierigkeit
             // 
-            this.textBox7.Location = new System.Drawing.Point(242, 38);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(109, 20);
-            this.textBox7.TabIndex = 6;
+            this.txtSchwierigkeit.Location = new System.Drawing.Point(242, 38);
+            this.txtSchwierigkeit.Name = "txtSchwierigkeit";
+            this.txtSchwierigkeit.Size = new System.Drawing.Size(109, 20);
+            this.txtSchwierigkeit.TabIndex = 6;
             // 
-            // textBox8
+            // btnHinzufügenFrage
             // 
-            this.textBox8.Location = new System.Drawing.Point(357, 38);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(109, 20);
-            this.textBox8.TabIndex = 7;
+            this.btnHinzufügenFrage.Location = new System.Drawing.Point(523, 22);
+            this.btnHinzufügenFrage.Name = "btnHinzufügenFrage";
+            this.btnHinzufügenFrage.Size = new System.Drawing.Size(131, 23);
+            this.btnHinzufügenFrage.TabIndex = 8;
+            this.btnHinzufügenFrage.Text = "Hinzufügen";
+            this.btnHinzufügenFrage.UseVisualStyleBackColor = true;
+            this.btnHinzufügenFrage.Click += new System.EventHandler(this.btnHinzufügenFrage_Click);
             // 
-            // button1
+            // btnAbbrechenFrage
             // 
-            this.button1.Location = new System.Drawing.Point(523, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(660, 22);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAbbrechenFrage.Location = new System.Drawing.Point(660, 22);
+            this.btnAbbrechenFrage.Name = "btnAbbrechenFrage";
+            this.btnAbbrechenFrage.Size = new System.Drawing.Size(131, 23);
+            this.btnAbbrechenFrage.TabIndex = 9;
+            this.btnAbbrechenFrage.Text = "Abbrechen";
+            this.btnAbbrechenFrage.UseVisualStyleBackColor = true;
+            this.btnAbbrechenFrage.Click += new System.EventHandler(this.btnAbbrechenFrage_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::Ratespiel.Properties.Resources.HinzufügenFrage;
             this.pictureBox1.Location = new System.Drawing.Point(12, 73);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(776, 365);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // cboxKat
+            // 
+            this.cboxKat.FormattingEnabled = true;
+            this.cboxKat.Location = new System.Drawing.Point(357, 38);
+            this.cboxKat.Name = "cboxKat";
+            this.cboxKat.Size = new System.Drawing.Size(109, 21);
+            this.cboxKat.TabIndex = 11;
+            // 
             // HinzufügenFrage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboxKat);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnAbbrechenFrage);
+            this.Controls.Add(this.btnHinzufügenFrage);
+            this.Controls.Add(this.txtSchwierigkeit);
+            this.Controls.Add(this.txtRichtigeAntwort);
+            this.Controls.Add(this.txtAntwort4);
+            this.Controls.Add(this.txtAntwort3);
+            this.Controls.Add(this.txtAntwort2);
+            this.Controls.Add(this.txtAntwort1);
+            this.Controls.Add(this.txtFrage);
             this.Name = "HinzufügenFrage";
             this.Text = "HinzufügenFrage";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -150,16 +154,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtFrage;
+        private System.Windows.Forms.TextBox txtAntwort1;
+        private System.Windows.Forms.TextBox txtAntwort2;
+        private System.Windows.Forms.TextBox txtAntwort3;
+        private System.Windows.Forms.TextBox txtAntwort4;
+        private System.Windows.Forms.TextBox txtRichtigeAntwort;
+        private System.Windows.Forms.TextBox txtSchwierigkeit;
+        private System.Windows.Forms.Button btnHinzufügenFrage;
+        private System.Windows.Forms.Button btnAbbrechenFrage;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cboxKat;
     }
 }

@@ -10,5 +10,9 @@ namespace Ratespiel
     {
         public int id { get; set; }
         public string kategorie { get; set; }
+        public override string ToString()
+        {
+            return kategorie;
+        }
     }
 }
