@@ -62,8 +62,7 @@ namespace Ratespiel
             nIndex = 0;
             nScore = 0;
             string strKategorie = cboxKat.Text;
-            int nId = daKategorie.getKatId(strKategorie);
-            lstFrage = daFrageAntworten.getQuestion(nId);
+            lstFrage = daFrageAntworten.getQuestion();
             txtFrage.Visible = true;
             cBoxAntwort1.Visible = true;
             cBoxAntwort2.Visible = true;

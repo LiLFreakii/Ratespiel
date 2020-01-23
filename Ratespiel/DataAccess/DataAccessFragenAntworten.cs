@@ -61,10 +61,9 @@ namespace Ratespiel
             return lst;
         }
 
-        public List<FragenAntworten> getQuestion(int nId)
+        public List<FragenAntworten> getQuestion()
         {
-            string strSql = "Select * from fragenantworten where kategorieId = @id";
-            Parameters["id"].Value = nId;
+            string strSql = "Select * from fragenantworten";
             List<FragenAntworten> lst = DBExecuteQuery(strSql);
             return lst;
         }

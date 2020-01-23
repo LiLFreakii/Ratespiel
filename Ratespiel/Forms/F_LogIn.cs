@@ -17,6 +17,7 @@ namespace Ratespiel
         {
             InitializeComponent();
             user = new User();
+            txtPasswort.PasswordChar = '*';
         }
 
         private void btnBeenden_Click(object sender, EventArgs e)
@@ -36,6 +37,7 @@ namespace Ratespiel
 
             string strUsername = txtUsername.Text.ToLower();
             string strPasswort = txtPasswort.Text;
+            
 
             List<User> lstUser = daUser.ReadAll();
 
